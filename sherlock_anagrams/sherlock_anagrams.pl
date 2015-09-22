@@ -20,3 +20,13 @@ sublist(L0, From, To, L) :-
     L = [E|L1],
     From1 is From + 1,
     sublist(L0, From1, To, L1).
+
+anagrams0([], [], L, L) :- !.
+anagrams0([H1|T1], [H2|T2], L1, L2) :-
+    char_code(H1, C1),
+    char_code(H2, C2),
+    Index1 is C1 - 95,
+    Index2 is C2 - 95.
+
+increase_at_index([H|T], CurrentIndex, CurrentIndex, L0, L) :-
+    L1 = [H|L0]
